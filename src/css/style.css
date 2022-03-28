@@ -5,14 +5,14 @@ body, html {
 
 .header {
     height: 67px;
-    width: 100vw;
-    position: absolute;
+    width: 100%;
+    position: fixed;
     top: 0px;
     left: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #C3CFD9;
+    background-color: #C3CFD9;
     font-size: 34px;
     color: #E8833A;
 }
@@ -27,6 +27,7 @@ body, html {
     font-size: x-large;
    
 }
+
 .movies {
     margin-top: 67px;
     display: flex;
@@ -51,7 +52,6 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
 }
 
 .movie-link {
@@ -64,7 +64,7 @@ body, html {
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     padding: 8px;
-    margin: 11px 15px;  
+    margin: 11px;  
 }
 
 .movie-link img {
@@ -74,6 +74,7 @@ body, html {
 
 .sessions {
     margin-top: 67px;
+    margin-bottom: 117px;
     display: flex;
     flex-direction: column;
     
@@ -134,5 +135,28 @@ body, html {
     text-align: center;
     letter-spacing: 0.02em;
     color: #FFFFFF;
+    text-decoration: none;
 
+}
+
+.footer {
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 14px 10px;
+    background-color: #DFE6ED;
+    border: 1px solid #9EADBA;
+}
+
+.footer img {
+    width: 48px;
+    height: 72px;
+    border: 8px solid #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
 }

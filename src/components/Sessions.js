@@ -44,6 +44,9 @@ export default function Sessions(){
             <div className='sessions-list'>
                 {daysList.map(e => <Day key={e.id} day={e} />)}
 			</div>
+            <div className="footer">
+                <img src={movieSessions.posterURL} />
+            </div>
         </div>
     );
 }
