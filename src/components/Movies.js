@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom";
+import axios from 'axios';
+
 
 export default function Movies() {
 	const [movies, setMovies] = useState([]);
@@ -15,20 +16,19 @@ export default function Movies() {
         request.catch(()=>console.log("erro"));
 	}, []);
 
+
 	function Movie(props){
 		const { movie } = props;
 		return(
-			<Link className="movie-link" to="/filme">
+			<Link className="movie-link" to={`/filme/${movie.id}`}>
 				<img src={movie.posterURL} alt={movie.title}/>
 			</Link>
 		);
 	}
 
 	if (movies.length === 0){
-		console.log("yes");
 		return(
-			
-				<div className='movie-loading'>LOADING</div>
+				<div className='loading'>LOADING</div>
 		);
 	}
     
