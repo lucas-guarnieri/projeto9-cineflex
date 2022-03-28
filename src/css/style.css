@@ -208,7 +208,7 @@ input {
     margin-bottom: 7px;
 }
 
-button {
+.res-button {
     width: 225px;
     height: 42px;
     background: #E8833A;
@@ -216,6 +216,10 @@ button {
     font-size: 18px;
     color: #FFFFFF;
     margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .footer {
@@ -255,4 +259,30 @@ button {
     margin: 0px 0px;
     font-size: 15px;
     color: #293845;
+}
+
+
+.success {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 67px;
+    margin-bottom: 117px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.success-title {
+    width: 200px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #247A6B;
+    text-align: center;
 }

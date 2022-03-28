@@ -3,11 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 
-export default function Session(){
+export default function Session(props){
     const [movieInfo, setMovieInfo] = useState({});
     const [seatsList, setSeatsList] = useState([]);
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
+    const {infos, setInfos} = props;
     const { idSessao } = useParams();
 
     useEffect(() => {
@@ -74,13 +75,25 @@ export default function Session(){
         if (name === "" || cpf === ""){
             alert("Preencha os campos necessários antes de continuar!")
         }else{
-            let idsList = [];// seatsList.filter(function (el) {return el.isSelected});
+            let idsList = [];
+            let numbersList =[];
             seatsList.forEach(e => {
                 if (e.isSelected){
                     idsList.push(e.id);
+                    numbersList.push(e.name);
                 }
             });
-            console.log(idsList);
+            setInfos({nome: name, cpf: cpf, movieTitle:movieInfo.movie.title, movieWeekDay:movieInfo.day.weekday, movieDate:movieInfo.day.date, seatsNumbers:numbersList});
+            console.log(infos);
+            axios.post(`https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many`, {
+                ids: idsList,
+                name: name,
+                cpf: cpf
+            })
+            .then(ans => {
+                console.log(ans);
+                console.log(ans.data);
+            })
         }
     }
 
@@ -101,7 +114,7 @@ export default function Session(){
             <input placeholder="Digite seu nome..." onChange={event => setName(event.target.value)} />
             <div className="text-session">Cpf do comprador:</div>  
             <input placeholder="Digite seu cpf..." onChange={event => setCpf(event.target.value)} />
-            <button className="res-button" onClick={sendRequest}>Reservar assento(s)</button>
+            <Link className="res-button" to={"/sucesso"} onClick={sendRequest}>Reservar assento(s)</Link>
            </div>
            <div className="footer">
                 <img src={movieInfo.movie.posterURL} alt={movieInfo.movie.title}/>
