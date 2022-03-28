@@ -5,7 +5,6 @@ import axios from "axios";
 export default function Sessions(){
     const [movieSessions, setMovieSessions] = useState({});
     const [daysList, setDaysList] = useState([]);
-
     const { idFilme } = useParams();
 
     useEffect(() => {
@@ -15,7 +14,6 @@ export default function Sessions(){
             setMovieSessions(ans.data);
             setDaysList(ans.data.days);
         });
-
         request.catch(()=>console.log("erro"));
     }, []);
 
@@ -37,7 +35,6 @@ export default function Sessions(){
 	 	);
 	}
 
-    console.log("ola, estou mostrando  sessions days ", daysList);
     return(
         <div className="sessions">
             <p>Selecione o horário</p>
